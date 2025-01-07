@@ -1,0 +1,88 @@
+import 'package:flutter/material.dart';
+
+class CardLongInventoryItem extends StatelessWidget {
+  String itemName;
+  String stock;
+  String sellPrice;
+  String buyPrice;
+
+  CardLongInventoryItem(
+      {super.key,
+      required this.itemName,
+      required this.stock,
+      required this.buyPrice,
+      required this.sellPrice});
+
+  @override
+  Widget build(BuildContext context) {
+    double padItemInventory = 8.0;
+
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: Color(0xFFD9D9D9),
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+      child: Column(
+        children: [
+          Padding(
+              padding: EdgeInsets.only(
+                  left: padItemInventory,
+                  right: padItemInventory,
+                  top: padItemInventory),
+              child: Row(
+                children: [
+                  Image.asset(
+                    'assets/images/ic_list_barang.png',
+                    width: 24.0,
+                    height: 24.0,
+                  ),
+                  SizedBox(width: 8.0),
+                  Text(
+                    itemName,
+                    style: TextStyle(
+                        color: Colors.indigo.shade900,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14.0),
+                  ),
+                ],
+              )),
+          Divider(
+            color: Colors.black,
+            thickness: 1.0,
+            height: 20.0,
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+                right: padItemInventory, left: padItemInventory),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text('Stok'),
+                Spacer(),
+                Text('Harga Jual'),
+                Spacer(),
+                Text('Harga Beli')
+              ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(padItemInventory),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(stock),
+                Spacer(),
+                Text('Rp. $sellPrice'),
+                Spacer(),
+                Text('Rp. $buyPrice')
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
