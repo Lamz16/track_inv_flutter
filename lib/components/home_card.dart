@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class HomeCard extends StatelessWidget {
   String icUrl;
   String countItem;
-  HomeCard({super.key, required this.countItem, required this.icUrl});
+  String typeOf;
+  HomeCard({super.key, required this.countItem, required this.icUrl, required this.typeOf});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class HomeCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-              padding: EdgeInsets.only(left: 8.0),
+              padding: EdgeInsets.only(left: 8.0,top: 8.0),
               child: Image.asset(icUrl,
                   width: 24.0, height: 24.0)),
           Padding(
@@ -34,7 +35,7 @@ class HomeCard extends StatelessWidget {
           Padding(
               padding: EdgeInsets.only(left: 8.0, bottom: 16.0),
               child:
-                  Text('Stok tersedia', style: TextStyle(color: Colors.white)))
+                  Text(typeOf, style: TextStyle(color: Colors.white)))
         ],
       ),
     );
