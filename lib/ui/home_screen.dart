@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:track_inv_flutter/components/home_btn_io.dart';
 import 'package:track_inv_flutter/components/home_card.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -46,9 +47,35 @@ class _HomeScreenState extends State<HomeScreen> {
                               countItem: '5',
                               icUrl: 'assets/images/ic_item_habis.png'),
                         ],
-                      )
+                      ),
+                      SizedBox(
+                        height: 16.0,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          HomeBtnIo(
+                              urlImg: 'assets/images/ic_stok_in.png',
+                              text: 'Stok Masuk'),
+                          SizedBox(
+                            width: 16.0,
+                          ),
+                          HomeBtnIo(
+                              urlImg: 'assets/images/ic_stok_out.png',
+                              text: 'Stok Keluar'),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 36.0,
+                      ),
                     ],
-                  )
+                  ),
+                  Text(
+                    "Last Update",
+                    style: TextStyle(fontSize: 28.0),
+                    textAlign: TextAlign.start,
+                  ),
                 ],
               )))),
     );
