@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class CardLongInventoryItem extends StatelessWidget {
   String itemName;
@@ -16,6 +17,17 @@ class CardLongInventoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double padItemInventory = 8.0;
+    final formattedBuyPrice = NumberFormat.currency(
+      locale: 'id_ID',
+      symbol: '',
+      decimalDigits: 0,
+    ).format(int.tryParse(buyPrice) ?? 0);
+
+    final formattedSellPrice = NumberFormat.currency(
+      locale: 'id_ID',
+      symbol: '',
+      decimalDigits: 0,
+    ).format(int.tryParse(sellPrice) ?? 0);
 
     return Container(
       width: double.infinity,
@@ -75,9 +87,9 @@ class CardLongInventoryItem extends StatelessWidget {
               children: [
                 Text(stock),
                 Spacer(),
-                Text('Rp. $sellPrice'),
+                Text('Rp. $formattedSellPrice'),
                 Spacer(),
-                Text('Rp. $buyPrice')
+                Text('Rp. $formattedBuyPrice')
               ],
             ),
           )
