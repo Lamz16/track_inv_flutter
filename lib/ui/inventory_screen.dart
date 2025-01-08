@@ -1,3 +1,4 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:track_inv_flutter/components/card_long_inventory_item.dart';
 import 'package:track_inv_flutter/components/fab_add.dart';
@@ -11,7 +12,7 @@ class InventoryScreen extends StatefulWidget {
 
 class _InventoryScreenState extends State<InventoryScreen> {
   final TextEditingController _searchController = TextEditingController();
-  final List<Map<String, String>> inventoryData = [
+  List<Map<String, String>> inventoryData = [
     {
       'itemName': 'Gula Pasir',
       'stock': '200',
@@ -30,7 +31,32 @@ class _InventoryScreenState extends State<InventoryScreen> {
   @override
   void initState() {
     super.initState();
-    filteredData = inventoryData;
+    _getDataInventory();
+  }
+
+  Future<void> _getDataInventory() async {
+    DatabaseReference ref = FirebaseDatabase.instance.ref('data_barang');
+    DataSnapshot snapshot = await ref.get();
+    if (snapshot.exists) {
+      print('Data Firebase : ${snapshot.value}');
+      Map<String, dynamic> data =
+          Map<String, dynamic>.from(snapshot.value as Map);
+      setState(() {
+        inventoryData = data.entries.map((entry) {
+          final value = Map<String, dynamic>.from(entry.value);
+          return {
+            "idBarang": value['idBarang']?.toString() ?? '',
+            'itemName': value['namaBarang']?.toString() ?? '',
+            'stock': value['stokBarang']?.toString() ?? '',
+            'buyPrice': value['buy']?.toString() ?? '',
+            'sellPrice': value['sell']?.toString() ?? ''
+          };
+        }).toList();
+        filteredData = inventoryData;
+      });
+    } else {
+      print('No data available');
+    }
   }
 
   void _filterItems(String query) {
