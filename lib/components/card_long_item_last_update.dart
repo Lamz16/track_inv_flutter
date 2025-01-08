@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class CardLongItemLastUpdate extends StatelessWidget {
   String typeTransaction;
@@ -6,12 +7,27 @@ class CardLongItemLastUpdate extends StatelessWidget {
   String item;
   String partnerName;
   String dateOfTrans;
-    CardLongItemLastUpdate({super.key, required this.typeTransaction, required this.nominalOfTran, required this.item, required this.partnerName, required this.dateOfTrans});
+
+  CardLongItemLastUpdate(
+      {super.key,
+      required this.typeTransaction,
+      required this.nominalOfTran,
+      required this.item,
+      required this.partnerName,
+      required this.dateOfTrans});
 
   @override
   Widget build(BuildContext context) {
-
-    double padItemUpdate = 8.0;
+    const padItemUpdate = 8.0;
+    final formattedNominal = NumberFormat.currency(
+      locale: 'id_ID',
+      symbol: '',
+      decimalDigits: 0,
+    ).format(int.tryParse(nominalOfTran) ?? 0);
+    var fixedColor = typeTransaction == 'Keluar' ? Colors.green : Colors.red;
+    String fixNominal = typeTransaction == 'Keluar'
+        ? '+ Rp. $formattedNominal'
+        : '- Rp. $formattedNominal';
 
     return Container(
       width: double.infinity,
@@ -34,25 +50,25 @@ class CardLongItemLastUpdate extends StatelessWidget {
                     width: 24.0,
                     height: 24.0,
                   ),
-                  SizedBox(width: 8.0),
+                  const SizedBox(width: 8.0),
                   Text(
                     typeTransaction,
                     style: TextStyle(
-                        color: Colors.green,
+                        color: fixedColor,
                         fontWeight: FontWeight.bold,
                         fontSize: 14.0),
                   ),
                   Spacer(),
                   Text(
-                    '+ Rp. $nominalOfTran',
+                    fixNominal,
                     style: TextStyle(
-                        color: Colors.green,
+                        color: fixedColor,
                         fontWeight: FontWeight.bold,
                         fontSize: 14.0),
                   ),
                 ],
               )),
-          Divider(
+          const Divider(
             color: Colors.black,
             thickness: 1.0,
             height: 20.0,
