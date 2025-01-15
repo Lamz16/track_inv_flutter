@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:track_inv_flutter/ui/add_inventory_item_screen.dart';
 
 class FabAdd extends StatelessWidget {
   const FabAdd({super.key});
@@ -6,7 +7,9 @@ class FabAdd extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context)=> const AddInventoryItemScreen()));
+      },
       shape: CircleBorder(),
       backgroundColor: Color(0xFF3B3B3C),
       child: Icon(
