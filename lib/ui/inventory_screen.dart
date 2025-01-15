@@ -52,6 +52,9 @@ class _InventoryScreenState extends State<InventoryScreen> {
             'sellPrice': value['sell']?.toString() ?? ''
           };
         }).toList();
+
+        inventoryData.sort((a,b) => a['itemName']!.compareTo(b['itemName']!));
+
         filteredData = inventoryData;
       });
     } else {
