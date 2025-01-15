@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class CardLongInventoryItem extends StatelessWidget {
-  String itemName;
-  String stock;
-  String sellPrice;
-  String buyPrice;
+  final String itemName;
+  final String stock;
+  final String sellPrice;
+  final String buyPrice;
 
-  CardLongInventoryItem(
+  const CardLongInventoryItem(
       {super.key,
       required this.itemName,
       required this.stock,
