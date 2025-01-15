@@ -75,7 +75,7 @@ class _AddInventoryItemScreenState extends State<AddInventoryItemScreen> {
                         Spacer(),
                         IconButton(
                             onPressed: () {
-                              Navigator.pop(context);
+                              Navigator.pop(context,true);
                             },
                             icon: Icon(
                               Icons.close,
