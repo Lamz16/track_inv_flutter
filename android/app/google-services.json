@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "717147220033",
+    "firebase_url": "https://track-inventory-app-default-rtdb.firebaseio.com",
+    "project_id": "track-inventory-app",
+    "storage_bucket": "track-inventory-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:717147220033:android:f9d96f5544f779e77ffec0",
+        "android_client_info": {
+          "package_name": "com.example.track_inv_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIm53eRGZifTFRqK3BD8CLd2px9tW7OVA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:717147220033:android:c3aba6e306cdf1067ffec0",
+        "android_client_info": {
+          "package_name": "com.lamz.trackinv"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIm53eRGZifTFRqK3BD8CLd2px9tW7OVA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
