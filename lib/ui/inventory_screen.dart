@@ -12,20 +12,7 @@ class InventoryScreen extends StatefulWidget {
 
 class _InventoryScreenState extends State<InventoryScreen> {
   final TextEditingController _searchController = TextEditingController();
-  List<Map<String, String>> inventoryData = [
-    {
-      'itemName': 'Gula Pasir',
-      'stock': '200',
-      'buyPrice': '12.000',
-      'sellPrice': '13.000'
-    },
-    {
-      'itemName': 'Beras',
-      'stock': '50',
-      'buyPrice': '12.000',
-      'sellPrice': '13.000'
-    },
-  ];
+  List<Map<String, String>> inventoryData = [];
   List<Map<String, String>> filteredData = [];
 
   @override
@@ -38,7 +25,6 @@ class _InventoryScreenState extends State<InventoryScreen> {
     DatabaseReference ref = FirebaseDatabase.instance.ref('data_barang');
     DataSnapshot snapshot = await ref.get();
     if (snapshot.exists) {
-      print('Data Firebase : ${snapshot.value}');
       Map<String, dynamic> data =
           Map<String, dynamic>.from(snapshot.value as Map);
       setState(() {
@@ -58,7 +44,11 @@ class _InventoryScreenState extends State<InventoryScreen> {
         filteredData = inventoryData;
       });
     } else {
-      print('No data available');
+      if(mounted){
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Tidak dapat menemukan data!')),
+        );
+      }
     }
   }
 
