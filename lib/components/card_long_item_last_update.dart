@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class CardLongItemLastUpdate extends StatelessWidget {
-  String typeTransaction;
-  String nominalOfTran;
-  String item;
-  String partnerName;
-  String dateOfTrans;
+  final String typeTransaction;
+  final String nominalOfTran;
+  final String item;
+  final String partnerName;
+  final String dateOfTrans;
 
-  CardLongItemLastUpdate(
+  const CardLongItemLastUpdate(
       {super.key,
       required this.typeTransaction,
       required this.nominalOfTran,
