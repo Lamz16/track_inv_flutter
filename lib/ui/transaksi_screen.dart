@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:track_inv_flutter/components/card_long_item_last_update.dart';
 import 'package:firebase_database/firebase_database.dart';
 
@@ -39,6 +40,13 @@ class _TransaksiScreenState extends State<TransaksiScreen> {
             'dateOfTrans': value['tglTran']?.toString() ?? '',
           };
         }).toList();
+
+        transactionData.sort((a,b) {
+          DateTime dateA = DateFormat('dd-MM-yyyy').parse(a['dateOfTrans']!);
+          DateTime dateB = DateFormat('dd-MM-yyyy').parse(b['dateOfTrans']!);
+          return dateB.compareTo(dateA);
+        });
+
         filteredTransaction = transactionData;
         print('Data transaksi $transactionData');
       });
