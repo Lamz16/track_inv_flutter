@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class HomeBtnIo extends StatelessWidget {
-  String urlImg;
-  String text;
-  HomeBtnIo({super.key, required this.urlImg, required this.text});
+  final String urlImg;
+  final String text;
+  const HomeBtnIo({super.key, required this.urlImg, required this.text});
 
   @override
   Widget build(BuildContext context) {
