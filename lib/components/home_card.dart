@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class HomeCard extends StatelessWidget {
-  String icUrl;
-  String countItem;
-  String typeOf;
-  HomeCard({super.key, required this.countItem, required this.icUrl, required this.typeOf});
+  final String icUrl;
+  final String countItem;
+  final String typeOf;
+  const HomeCard({super.key, required this.countItem, required this.icUrl, required this.typeOf});
 
   @override
   Widget build(BuildContext context) {
